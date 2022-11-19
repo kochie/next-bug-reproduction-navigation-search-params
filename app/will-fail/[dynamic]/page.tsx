@@ -1,6 +1,6 @@
 import { copyFile, mkdir } from "fs/promises";
 import Image from "next/image";
-import SearchHook from "../SearchHook";
+import SearchHook from "../../SearchHook";
 
 const DynamicPage = async ({ params }) => {
   await mkdir("public/images", { recursive: true });
@@ -24,6 +24,6 @@ export default DynamicPage;
  */
 export async function generateStaticParams() {
   return [...Array(1000)].map((_, index) => ({
-    willFail: `page-${index}`,
+    dynamic: `page-${index}`,
   }));
 }
