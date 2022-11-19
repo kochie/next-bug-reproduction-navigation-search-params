@@ -23,7 +23,7 @@ export default DynamicPage;
  * @returns
  */
 export async function generateStaticParams() {
-  return [...Array(1000)].map((_, index) => ({
+  return [...Array(10)].map((_, index) => ({
     dynamic: `page-${index}`,
   }));
 }
