@@ -1,13 +1,15 @@
+import { copyFile, mkdir } from "fs/promises";
 import Image from "next/image";
 
-import testImage from "../../assets/test.png";
+const DynamicPage = async ({ params }) => {
+  await mkdir("public/images", { recursive: true });
+  await copyFile("assets/test.png", "public/images/test.png");
 
-const DynamicPage: React.FC<any> = ({ params }) => {
   return (
     <div>
       <h1>DynamicPage Component</h1>
       <pre>{JSON.stringify(params, null, 2)}</pre>
-      <Image src={testImage} alt="" />
+      <Image src="/images/test.png" alt="" />
     </div>
   );
 };
